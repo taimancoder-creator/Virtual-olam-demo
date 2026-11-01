@@ -55,12 +55,12 @@ body.go #cbtn{display:block}body.tm #cbtn,body.tm #clog{display:none}
 body.go #ibtn{display:block}body.tm #ibtn{display:none}
 #nick{font:inherit;font-size:16px;text-align:center;background:#071318;color:var(--ink);border:1px solid var(--cy);border-radius:6px;padding:10px;outline:none;width:220px;-webkit-user-select:text;user-select:text}
 </style></head><body>
-<div id="hdr"><b>TAIMAN HACKER</b><span id="hb">₿ 0 | Iz 0%</span></div>
+<div id="hdr"><b>TAIMAN HACKER</b><span id="hb"> 0 | Iz 0%</span></div>
 <div id="obj"></div><div id="banner"></div><div id="vig"></div><div id="xh"></div><canvas id="mm" width="128" height="82"></canvas>
-<div id="intro"><h1>TAIMAN HACKER</h1><small>ONLAYN VIRTUAL OLAM · 🔗 tugmasi bilan doʻstlarni taklif qiling</small><p>Xonalardagi eshik kodlarini buzing, kompyuterlarni hack qiling, koʻchaga chiqing va militsiyadan qochib moshinaga yeting.</p><p>Telefon: chapda joystick (oxirigacha surilsa yuguradi), oʻngda surib qarang.<br>Kompyuter: WASD, sichqoncha, Shift — yugurish, E — ishlatish, T — chat. Boshqa oʻyinchilarni koʻrasiz va ular bilan yozishasiz (💬).</p><input id="nick" maxlength="16" placeholder="Ismingiz" autocomplete="off"><button id="enter">Boshlash</button><p id="msg" style="color:#ff8a8a;font-size:12px"></p></div>
+<div id="intro"><h1>TAIMAN HACKER</h1><small>ONLAYN VIRTUAL OLAM �  tugmasi bilan dostlarni taklif qiling</small><p>Xonalardagi eshik kodlarini buzing, kompyuterlarni hack qiling, kochaga chiqing va militsiyadan qochib moshinaga yeting.</p><p>Telefon: chapda joystick (oxirigacha surilsa yuguradi), ongda surib qarang.<br>Kompyuter: WASD, sichqoncha, Shift � yugurish, E � ishlatish, T � chat. Boshqa oyinchilarni korasiz va ular bilan yozishasiz ().</p><input id="nick" maxlength="16" placeholder="Ismingiz" autocomplete="off"><button id="enter">Boshlash</button><p id="msg" style="color:#ff8a8a;font-size:12px"></p></div>
 <canvas id="c"></canvas>
-<div id="clog"></div><button id="cbtn">💬</button><button id="ibtn">🔗</button><div id="cbar"><input id="cin" maxlength="140" placeholder="Xabar yozing…" autocomplete="off"><button id="csend">➤</button></div>
-<button id="use">Kompyuterga oʻtirish [E]</button>
+<div id="clog"></div><button id="cbtn"></button><button id="ibtn"></button><div id="cbar"><input id="cin" maxlength="140" placeholder="Xabar yozing�" autocomplete="off"><button id="csend"></button></div>
+<button id="use">Kompyuterga otirish [E]</button>
 <div id="joy"><div id="knob"></div></div>
 <div id="term"><div id="tbar"><span>root@taiman:~$</span><button id="tclose">Turish [Esc]</button></div><div id="trw"><div id="tr"></div></div><div id="tbody"></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -122,7 +122,7 @@ const dust=new THREE.Points(dg,new THREE.PointsMaterial({size:.035,color:0x9fdff
 const door1=box(1.6,2.4,.12,0x2a2d33,0,1.2,4),door2=box(.12,2.4,1.6,0x2a2d33,4,1.2,10);
 box(1.7,.06,.14,0x19f0ff,0,2.45,4,true);box(.14,.06,1.7,0xff2bd6,4,2.45,10,true);
 const k1=box(.12,.16,.12,0xff3355,1.05,1.3,3.9,true),k2=box(.12,.16,.12,0xff3355,3.9,1.3,11.1,true);
-// koʻcha
+// kocha
 const rd=box(42,.1,30,0x15171c,25,-.05,11);rd.material.roughness=.2;rd.material.metalness=.35;for(let i=0;i<8;i++)box(1.6,.02,.18,0x888c94,8+i*5,.01,11,true);
 const wc=cvs(64,128);wc.x.fillRect(0,0,64,128);for(let r=0;r<16;r++)for(let c=0;c<8;c++)if(Math.random()<.45){wc.x.fillStyle=Math.random()<.7?"#ffd98a":"#7fd7ff";wc.x.fillRect(c*8+2,r*8+2,4,5)}wc.t.needsUpdate=true;
 const bm=new THREE.MeshLambertMaterial({color:0x15171c,emissive:0xffffff,emissiveMap:wc.t});
@@ -136,7 +136,7 @@ function makeCop(){const g=new THREE.Group(),m=c=>new THREE.MeshLambertMaterial(
  add(.45,.55,.25,0x14183a,.28);add(.5,.7,.3,0x1d2f7a,.9);const hd=new THREE.Mesh(new THREE.SphereGeometry(.15,12,10),m(0xd9a384));hd.position.y=1.42;g.add(hd);add(.34,.09,.34,0x0b1030,1.6);
  const lb=new THREE.Mesh(new THREE.BoxGeometry(.3,.08,.12),new THREE.MeshBasicMaterial({color:0xff0000}));lb.position.y=1.75;g.add(lb);g.visible=false;S.add(g);return{g,lb,x:0,z:0}}
 const cops=[0,1,2].map(makeCop),CS=[[12,8],[18,14],[25,10]];function resetCops(){cops.forEach((c,i)=>{c.x=CS[i][0];c.z=CS[i][1]})}resetCops();
-// ===== REALISTIK QOʻL =====
+// ===== REALISTIK QOL =====
 const skin=new THREE.MeshStandardMaterial({color:0xd9a384,roughness:.6}),nailM=new THREE.MeshStandardMaterial({color:0xf0cfc6,roughness:.25}),cuffM=new THREE.MeshStandardMaterial({color:0x15161a,roughness:.85});
 function seg(len,r0,r1){const g=new THREE.Group(),c=new THREE.Mesh(new THREE.CylinderGeometry(r0,r1,len,14),skin);c.rotation.x=Math.PI/2;c.position.z=-len/2;g.add(c);g.add(new THREE.Mesh(new THREE.SphereGeometry(r0,14,10),skin));return g}
 function makeHand(){
@@ -161,24 +161,24 @@ function pose(h,x,y,z,rx,ry,dt){const k=1-Math.exp(-dt*8),kf=Math.min(1,dt*18);h
  if(h.tapT>0)h.tapT-=dt;const tg=[.2,.3,.35,.4,.45];if(h.tapT>0)tg[h.tapI]=.95;
  h.fs.forEach((f,i)=>{h.c[i]+=(tg[i]-h.c[i])*kf;const c=h.c[i];if(i===0){f.root.rotation.y=.9-c*.7;f.js[1].rotation.x=-c*.6;f.js[2].rotation.x=-c*.7}else{f.js[0].rotation.x=-c*.95;f.js[1].rotation.x=-c*1.2;f.js[2].rotation.x=-c*.75}})}
 function fx(hh){const h=hh||(Math.random()<.5?hL:hR);h.tapT=.14;h.tapI=1+Math.floor(Math.random()*4)}
-// ===== OʻYIN MANTIGʻI =====
+// ===== OYIN MANTIGI =====
 const net={room:null,peers:new Map(),av:new Map(),count:1,name:"Hacker"+Math.floor(100+Math.random()*900),col:Math.floor(Math.random()*360),lt:0,sent:""};
 const st={cred:0,trace:0,cur:-1,open:false,kh:null,cb:null};
-const MS=[[["Bank serveri",0,0],["Sun’iy yoʻldosh",1,0]],[["Taiman Vault",2,0]]];
+const MS=[[["Bank serveri",0,0],["Sun�iy yoldosh",1,0]],[["Taiman Vault",2,0]]];
 let noCops=false,copSlow=1,alarmT=0,sitting=false,cc=0,stage=0,open1=false,open2=false,useAct=null,bT=0,sirenT=0,caughtT=0;
-const OBJ=["Kompyuterda pul ishlang, keyin 1-eshik kodini buzing","2-xonadagi kompyuterga oʻting va Taiman Vault ni hack qiling","SIGNAL! Chiqish eshigini tezroq buzing","Koʻchaga chiqing! Militsiyadan qochib, yashil nurli moshinaga yeting"];
+const OBJ=["Kompyuterda pul ishlang, keyin 1-eshik kodini buzing","2-xonadagi kompyuterga oting va Taiman Vault ni hack qiling","SIGNAL! Chiqish eshigini tezroq buzing","Kochaga chiqing! Militsiyadan qochib, yashil nurli moshinaga yeting"];
 const tb=$("tbody");
-function stats(){$("hb").textContent="₿ "+st.cred+"  |  Iz "+Math.round(st.trace)+"%  |  👥 "+net.count;$("tr").style.width=st.trace+"%"}
+function stats(){$("hb").textContent=" "+st.cred+"  |  Iz "+Math.round(st.trace)+"%  |   "+net.count;$("tr").style.width=st.trace+"%"}
 function banner(s,ms){const b=$("banner");b.style.display="none";void b.offsetWidth;b.textContent=s;b.style.display="block";clearTimeout(bT);bT=setTimeout(()=>b.style.display="none",ms||2500)}
 function openTerm(){$("term").style.display="flex";$("joy").style.display="none";$("use").style.display="none";document.body.classList.add("tm");st.open=true}
 function closeTerm(){$("term").style.display="none";if(coarse)$("joy").style.display="block";document.body.classList.remove("tm");st.open=false;st.cur=-1;st.kh=null}
 function menu(msg){st.cur=-1;st.trace=0;st.kh=null;st.cb=null;stats();
- tb.innerHTML='<pre class="l">'+(msg||"Taiman OS v1.0 tayyor.\nNishonni tanlang:")+'</pre>'+MS[cc].map((m,i)=>'<button class="mi" data-i="'+i+'" '+(m[2]?"disabled":"")+'>'+(m[2]?"[✓] ":"[>] ")+m[0]+'</button>').join("")+'<button class="mi2" id="sh">>_ Terminal (buyruqlar)</button>';
+ tb.innerHTML='<pre class="l">'+(msg||"Taiman OS v1.0 tayyor.\nNishonni tanlang:")+'</pre>'+MS[cc].map((m,i)=>'<button class="mi" data-i="'+i+'" '+(m[2]?"disabled":"")+'>'+(m[2]?"[] ":"[>] ")+m[0]+'</button>').join("")+'<button class="mi2" id="sh">>_ Terminal (buyruqlar)</button>';
  if($("sh"))$("sh").onclick=()=>{st.cb=(ok,r)=>menu("ALARM! "+(r||"")+"\nIz tozalandi.");shell()};
  tb.querySelectorAll(".mi").forEach(b=>b.onclick=()=>{fx(hR);snd("key");const m=MS[cc][+b.dataset.i];
   launch([gCode,gFire,gType][m[1]],(ok,r)=>{if(ok){m[2]=1;st.cred+=100*(m[1]+1);stats();snd("ok");vib(40);
-   if(cc===1&&MS[1].every(x=>x[2])){stage=2;alarmT=6;snd("alarm");menu("VAULT OCHILDI, LEKIN SIGNAL BERILDI!\nMilitsiya yoʻlda. Chiqish eshigini tezroq hack qiling!")}else menu("Kirish muvaffaqiyatli! +"+100*(m[1]+1)+" ₿")}
-   else menu("ALARM! "+(r||"")+"\nIz tozalandi, qayta urinib koʻring.")})})}
+   if(cc===1&&MS[1].every(x=>x[2])){stage=2;alarmT=6;snd("alarm");menu("VAULT OCHILDI, LEKIN SIGNAL BERILDI!\nMilitsiya yolda. Chiqish eshigini tezroq hack qiling!")}else menu("Kirish muvaffaqiyatli! +"+100*(m[1]+1)+" ")}
+   else menu("ALARM! "+(r||"")+"\nIz tozalandi, qayta urinib koring.")})})}
 function launch(g,cb){st.cb=cb;st.trace=0;stats();st.cur=g===gCode?0:g===gFire?1:2;g()}
 function addTrace(v){st.trace=Math.min(100,st.trace+v);stats();snd("fail");vib(60);if(st.trace>=100)fail("Iz topildi.")}
 function fail(r){st.cur=-1;snd("alarm");vib([120,60,120]);alarmT=2.5;if(st.cb)st.cb(false,r)}
@@ -187,7 +187,7 @@ function shell(){st.cur=3;st.kh=null;st.trace=0;stats();let log="Taiman shell. '
  tb.innerHTML='<pre class="l" id="so"></pre><input id="ti" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="buyruq yozing, Enter">';
  const so=$("so"),ti=$("ti");so.textContent=log;
  const out=s=>{log+=s+"\n";so.textContent=log;tb.scrollTop=tb.scrollHeight},stop=()=>{if(iv){clearInterval(iv);iv=null}};
- const CH={money(){st.cred+=1000;stats();return"+1000 ₿"},open(){open1||openDoor(1);open2||openDoor(2);return"Eshiklar ochildi"},nocops(){noCops=true;return"Militsiya oʻchirildi"},slow(){copSlow=.4;return"Militsiya sekinlashdi"}};
+ const CH={money(){st.cred+=1000;stats();return"+1000 "},open(){open1||openDoor(1);open2||openDoor(2);return"Eshiklar ochildi"},nocops(){noCops=true;return"Militsiya ochirildi"},slow(){copSlow=.4;return"Militsiya sekinlashdi"}};
  function brute(n,mode){if(n===2&&stage<2)return out("2-eshik hali faol emas (avval Taiman Vault).");if((n===1&&open1)||(n===2&&open2))return out("Eshik allaqachon ochiq.");
   const cfg={fast:[4,28],normal:[9,9],slow:[16,4]}[mode]||[9,9];let el=0;out("brute door"+n+" ["+(mode||"normal")+"] boshlandi...");st.trace=0;
   iv=setInterval(()=>{if(st.cur!==3){stop();return}el+=.1;st.trace+=cfg[1]*.1;stats();
@@ -195,24 +195,24 @@ function shell(){st.cur=3;st.kh=null;st.trace=0;stats();let log="Taiman shell. '
    if(st.trace>=100){stop();fail("Iz topildi.");return}
    if(el>=cfg[0]){stop();out("KOD TOPILDI. Ruxsat berildi.");snd("ok");openDoor(n);if(!sitting)setTimeout(closeTerm,900)}},100)}
  function run(s){stop();s=s.trim();if(!s)return;out("> "+s);const a=s.toLowerCase().split(/\s+/);
-  if(a[0]==="help")out("scan — nishonlar holati\nbrute door1|door2 [fast|slow] — brute force\ncheat <nom> | cheat list\nexit — chiqish");
+  if(a[0]==="help")out("scan � nishonlar holati\nbrute door1|door2 [fast|slow] � brute force\ncheat <nom> | cheat list\nexit � chiqish");
   else if(a[0]==="scan")out("door1: "+(open1?"ochiq":"qulf, 4 xonali kod")+"\ndoor2: "+(open2?"ochiq":stage>=2?"qulf, firewall":"faol emas")+"\nIz: "+Math.round(st.trace)+"%");
   else if(a[0]==="brute"){const m=/^door([12])$/.exec(a[1]||"");m?brute(+m[1],a[2]):out("Foydalanish: brute door1 [fast|slow]")}
-  else if(a[0]==="cheat"){const f=CH[a[1]];a[1]==="list"?out("money, open, nocops, slow"):f?out(f()):out("Nomaʼlum cheat. 'cheat list'")}
+  else if(a[0]==="cheat"){const f=CH[a[1]];a[1]==="list"?out("money, open, nocops, slow"):f?out(f()):out("Nomalum cheat. 'cheat list'")}
   else if(a[0]==="exit"){if(sitting)menu();else closeTerm()}
-  else out("Nomaʼlum buyruq. 'help'")}
+  else out("Nomalum buyruq. 'help'")}
  ti.onkeydown=e=>{if(e.key==="Enter"){run(ti.value);ti.value=""}};ti.oninput=()=>{fx();snd("key")};if(!coarse)ti.focus()}
 function hackDoor(n){openTerm();st.cb=ok=>{closeTerm();if(ok)openDoor(n);else banner("Qulf buzilmadi. Qayta urining.",2000)};
- tb.innerHTML='<pre class="l">'+n+'-eshik qulfi. Usulni tanlang:</pre><button class="mi2" id="m1">Qoʻlda buzish</button><button class="mi2" id="m2">>_ Terminal (brute force, cheat)</button>';
+ tb.innerHTML='<pre class="l">'+n+'-eshik qulfi. Usulni tanlang:</pre><button class="mi2" id="m1">Qolda buzish</button><button class="mi2" id="m2">>_ Terminal (brute force, cheat)</button>';
  $("m1").onclick=()=>{launch(n===1?gCode:gFire,st.cb)};$("m2").onclick=shell}
 function openDoor(n){snd("unlock");vib(80);if(n===1){open1=true;stage=Math.max(stage,1);k1.material.color.set(0x39ff88);banner("1-eshik ochildi!")}else{open2=true;stage=3;k2.material.color.set(0x39ff88);banner("Chiqish ochildi! Qoching!",3000)}}
 function resetGame(){MS.forEach(a=>a.forEach(m=>m[2]=0));open1=open2=false;noCops=false;copSlow=1;stage=0;px=0;pz=2;yaw=0;pit=0;vx=vz=0;k1.material.color.set(0xff3355);k2.material.color.set(0xff3355);resetCops();stats()}
 function gCode(){const sec=[0,0,0,0].map(()=>Math.floor(Math.random()*10));let g="",log="",tries=0;
- function draw(){tb.innerHTML='<pre class="l">PAROL BUZISH: 4 xonali kod\n● joyida   ○ boshqa joyda\n'+log+'</pre><div class="g">'+(g+"----").slice(0,4).split("").join(" ")+'</div><div class="pad">'+[1,2,3,4,5,6,7,8,9,"<",0,"OK"].map(k=>'<button data-k="'+k+'">'+k+'</button>').join("")+'</div>';
+ function draw(){tb.innerHTML='<pre class="l">PAROL BUZISH: 4 xonali kod\n joyida    boshqa joyda\n'+log+'</pre><div class="g">'+(g+"----").slice(0,4).split("").join(" ")+'</div><div class="pad">'+[1,2,3,4,5,6,7,8,9,"<",0,"OK"].map(k=>'<button data-k="'+k+'">'+k+'</button>').join("")+'</div>';
   tb.querySelectorAll(".pad button").forEach(b=>b.onclick=()=>key(b.dataset.k))}
  function key(k){fx();snd("key");if(k==="<")g=g.slice(0,-1);else if(k==="OK"){if(g.length<4)return;submit();return}else if(g.length<4)g+=k;draw()}
  function submit(){let ex=0,a=[],b=[];for(let i=0;i<4;i++){if(+g[i]===sec[i])ex++;else{a.push(sec[i]);b.push(+g[i])}}let mp=0;b.forEach(d=>{const j=a.indexOf(d);if(j>-1){mp++;a.splice(j,1)}});
-  log+=g+"  "+"●".repeat(ex)+"○".repeat(mp)+"\n";tries++;g="";if(ex===4){win(0);return}addTrace(14);if(st.cur!==0)return;if(tries>=8){fail("Urinishlar tugadi.");return}draw()}
+  log+=g+"  "+"".repeat(ex)+"".repeat(mp)+"\n";tries++;g="";if(ex===4){win(0);return}addTrace(14);if(st.cur!==0)return;if(tries>=8){fail("Urinishlar tugadi.");return}draw()}
  st.kh=e=>{if(/^\d$/.test(e.key))key(e.key);else if(e.key==="Backspace")key("<");else if(e.key==="Enter")key("OK")};draw()}
 function gFire(){let round=0,seq=[],inp=[],lock=true;const len=[3,4,5],tone=f=>{if(AC)ping(f,.15,.12,0)};
  tb.innerHTML='<pre class="l">FIREWALL: ketma-ketlikni eslang va takrorlang</pre><div class="fg">'+[0,1,2,3,4,5,6,7,8].map(i=>'<button></button>').join("")+'</div>';
@@ -235,9 +235,9 @@ const coarse=matchMedia("(pointer:coarse)").matches;
 const RC=[[-2.9,3.4,-7.3,3.9],[-.7,.7,3.5,4.5,()=>open1],[-3.4,3.4,4.1,16.2],[3.5,4.6,9.3,10.7,()=>open2],[4.5,42,6,16]];
 const inside=(x,z)=>RC.some(r=>x>=r[0]&&x<=r[1]&&z>=r[2]&&z<=r[3]&&(!r[4]||r[4]()));
 const INT=[
- {x:0,z:-7.6,r:2.4,l:"Kompyuterga oʻtirish [E]",on:()=>sitAt(0)},
+ {x:0,z:-7.6,r:2.4,l:"Kompyuterga otirish [E]",on:()=>sitAt(0)},
  {x:0,z:2.6,r:1.9,ok:()=>!open1,l:"1-eshik kodini buzish [E]",on:()=>hackDoor(1)},
- {x:0,z:15.6,r:2.4,ok:()=>open1,l:"Kompyuterga oʻtirish [E]",on:()=>sitAt(1)},
+ {x:0,z:15.6,r:2.4,ok:()=>open1,l:"Kompyuterga otirish [E]",on:()=>sitAt(1)},
  {x:3.1,z:10,r:1.9,ok:()=>open1&&!open2,l:"Chiqish eshigini buzish [E]",on:()=>stage>=2?hackDoor(2):banner("Eshik qulflangan. Avval kompyuterda Taiman Vault ni hack qiling.",3000)}];
 function sitAt(i){cc=i;sitting=true;openTerm();menu()}
 function stand(){const d=D[cc];sitting=false;closeTerm();px=0;pz=d.zw+d.d*3;yaw=d.yaw;pit=0;vx=vz=0}
@@ -305,7 +305,7 @@ function attach(room){net.room=room;
 function loadJs(u){return new Promise((ok,no)=>{const e=document.createElement("script");e.src=u;e.onload=ok;e.onerror=no;document.head.appendChild(e)})}
 async function connect(){
  const nk=$("nick").value.trim().slice(0,16);if(nk)net.name=nk;try{localStorage.setItem("tn",net.name)}catch(e){}
- try{if(!window.Peer){try{await loadJs("https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js")}catch(e){await loadJs("https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js")}}}catch(e){say("PeerJS yuklanmadi: yolgʻiz rejim","sys");return}
+ try{if(!window.Peer){try{await loadJs("https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js")}catch(e){await loadJs("https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js")}}}catch(e){say("PeerJS yuklanmadi: yolgiz rejim","sys");return}
  let code=(location.hash.match(/r=([a-z0-9]{4,12})/)||[])[1];if(!code){code=Math.random().toString(36).slice(2,8);try{history.replaceState(null,"","#r="+code)}catch(e){}}
  const hostId="taiman-"+code,peers=new Map(),conns=new Map(),pcb=[],ccb=[];let myId="",mine={n:net.name,c:net.col},isHost=false,peer=null,conn=null,rt=0,attached=false;
  const fin=v=>typeof v==="number"&&isFinite(v);
@@ -318,21 +318,26 @@ async function connect(){
   else if(k.k==="l"){peers.delete(String(k.from));notify()}
   else if(k.k==="snap"&&Array.isArray(k.list)){k.list.forEach(e=>{if(Array.isArray(e)&&e[0]!==myId&&e[1])peers.set(String(e[0]),clean(e[1]))});notify()}}
  const room={emit(tp,d){const t=String(d&&d.t||"").slice(0,140);if(t){const k={k:"c",from:myId,t};proc(k);out(k)}return Promise.resolve()},on(tp,f){ccb.push(f);return()=>{}},onPeers(f){pcb.push(f);return()=>{}},presence(pt){Object.assign(mine,pt);out({k:"p",from:myId,pr:mine});return Promise.resolve()}};
- function cleanup(){try{peer&&peer.destroy()}catch(e){}peer=null;conns.clear();conn=null}
- function retry(){clearTimeout(rt);peers.clear();notify();say("Ulanish uzildi, qayta urinilmoqda…","sys");rt=setTimeout(tryHost,500+Math.random()*2000)}
- function ready(){if(!attached){attached=true;attach(room)}notify();say("Xona: "+code+(isHost?" (siz xostsiz)":""),"sys")}
- function tryHost(){cleanup();const p=new Peer(hostId);peer=p;
-  p.on("open",id=>{myId=id;isHost=true;peers.clear();ready()});
-  p.on("connection",c=>{c.on("open",()=>{conns.set(c.peer,c);c.send({k:"snap",list:[[myId,mine],...peers]})});
-   c.on("data",d=>{if(!d||typeof d!=="object"||(d.k!=="p"&&d.k!=="c"))return;d.from=c.peer;proc(d);relay(d,c)});
-   c.on("close",()=>{if(conns.get(c.peer)===c){conns.delete(c.peer);peers.delete(c.peer);notify();relay({k:"l",from:c.peer},null)}})});
-  p.on("error",e=>{if(e.type==="unavailable-id"){p.destroy();join()}else retry()})}
- function join(){cleanup();const p=new Peer();peer=p;
-  p.on("open",id=>{myId=id;isHost=false;const c=p.connect(hostId,{reliable:true});conn=c;
-   c.on("open",()=>{peers.clear();ready();c.send({k:"p",from:myId,pr:mine})});
-   c.on("data",d=>{if(d&&typeof d==="object")proc(d)});c.on("close",retry)});
-  p.on("error",e=>{if(e.type!=="unavailable-id")retry()})}
- $("ibtn").onclick=async()=>{const u=location.href,x="Taiman Hacker olamiga qoʻshil!";try{if(navigator.share){await navigator.share({title:"Taiman Hacker",text:x,url:u});return}}catch(e){return}
+ let gen=0,fails=0,lastErr="";
+ const ICE={config:{iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:"stun:stun1.l.google.com:19302"},{urls:"turn:openrelay.metered.ca:80",username:"openrelayproject",credential:"openrelayproject"},{urls:"turn:openrelay.metered.ca:443?transport=tcp",username:"openrelayproject",credential:"openrelayproject"}]}};
+ function cleanup(){const p=peer;peer=null;conns.clear();conn=null;try{p&&p.destroy()}catch(e){}}
+ function retry(g){if(g!==gen)return;gen++;clearTimeout(rt);cleanup();peers.clear();notify();fails++;if(fails<=1||fails%4===0)say("Ulanish uzildi, qayta urinilmoqda�","sys");rt=setTimeout(tryHost,Math.min(12000,800*fails)+Math.random()*1500)}
+ function ready(){fails=0;if(!attached){attached=true;attach(room)}notify();say("Xona: "+code+(isHost?" (siz xostsiz)":""),"sys")}
+ function errMsg(e){if(e.type!==lastErr){lastErr=e.type;say("Tarmoq xatosi: "+e.type,"sys")}}
+ function tryHost(){const g=++gen;cleanup();const p=new Peer(hostId,ICE);peer=p;
+  p.on("open",id=>{if(g!==gen)return;myId=id;isHost=true;peers.clear();ready()});
+  p.on("connection",c=>{if(g!==gen)return;c.on("open",()=>{if(g!==gen)return;conns.set(c.peer,c);c.send({k:"snap",list:[[myId,mine],...peers]})});
+   c.on("data",d=>{if(g!==gen||!d||typeof d!=="object"||(d.k!=="p"&&d.k!=="c"))return;d.from=c.peer;proc(d);relay(d,c)});
+   c.on("close",()=>{if(g===gen&&conns.get(c.peer)===c){conns.delete(c.peer);peers.delete(c.peer);notify();relay({k:"l",from:c.peer},null)}})});
+  p.on("disconnected",()=>{if(g===gen){try{p.reconnect()}catch(e){retry(g)}}});
+  p.on("error",e=>{if(g!==gen)return;if(e.type==="unavailable-id"){join()}else{errMsg(e);retry(g)}})}
+ function join(){const g=++gen;cleanup();const p=new Peer(undefined,ICE);peer=p;
+  p.on("open",id=>{if(g!==gen)return;myId=id;isHost=false;const c=p.connect(hostId,{reliable:true});conn=c;
+   c.on("open",()=>{if(g!==gen)return;peers.clear();ready();c.send({k:"p",from:myId,pr:mine})});
+   c.on("data",d=>{if(g===gen&&d&&typeof d==="object")proc(d)});c.on("close",()=>retry(g))});
+  p.on("disconnected",()=>{if(g===gen){try{p.reconnect()}catch(e){retry(g)}}});
+  p.on("error",e=>{if(g!==gen)return;if(e.type!=="peer-unavailable")errMsg(e);retry(g)})}
+ $("ibtn").onclick=async()=>{const u=location.href,x="Taiman Hacker olamiga qoshil!";try{if(navigator.share){await navigator.share({title:"Taiman Hacker",text:x,url:u});return}}catch(e){return}
   try{await navigator.clipboard.writeText(u);say("Havola nusxalandi, Telegramga tashlang","sys")}catch(e){window.open("https://t.me/share/url?url="+encodeURIComponent(u)+"&text="+encodeURIComponent(x),"_blank")}};
  tryHost()}
 const tv=new THREE.Vector3();let slow=0,baseFov=65;
@@ -359,12 +364,12 @@ const tv=new THREE.Vector3();let slow=0,baseFov=65;
  pcl.forEach((m,i)=>m.material.color.set(wanted?((i+blink)%2?0xff0000:0x0000ff):0x222222));
  cops.forEach((c,i)=>{c.g.visible=wanted;c.lb.material.color.set(blink?0xff0000:0x0000ff);
   if(stage>=3&&px>5&&caughtT<=0&&!noCops){const dx=px-c.x,dz=pz-c.z,d=Math.hypot(dx,dz)||1;
-   if(d<.85){caughtT=2;banner("Qoʻlga tushdingiz! Qayta urinib koʻring.",2200);snd("alarm");vib(300);px=3.2;pz=10;vx=vz=0;resetCops()}
+   if(d<.85){caughtT=2;banner("Qolga tushdingiz! Qayta urinib koring.",2200);snd("alarm");vib(300);px=3.2;pz=10;vx=vz=0;resetCops()}
    else{c.x+=dx/d*(2+i*.12)*copSlow*dt;c.z+=dz/d*(2+i*.12)*copSlow*dt}c.g.rotation.y=Math.atan2(dx,dz)}
   c.g.position.set(c.x,Math.abs(Math.sin(t*9+i))*.05,c.z)});
  caughtT-=dt;
  if(stage>=3&&px>5){sirenT-=dt;if(sirenT<=0){snd("siren");sirenT=.5}}
- if(stage>=3&&Math.hypot(px-CAR[0],pz-CAR[1])<2&&caughtT<=0){caughtT=4;st.cred+=500;stats();snd("unlock");banner("QOCHDINGIZ! +500 ₿\nTaiman Hacker g‘olib!",3500);setTimeout(resetGame,3500)}
+ if(stage>=3&&Math.hypot(px-CAR[0],pz-CAR[1])<2&&caughtT<=0){caughtT=4;st.cred+=500;stats();snd("unlock");banner("QOCHDINGIZ! +500 \nTaiman Hacker g�olib!",3500);setTimeout(resetGame,3500)}
  const hue=(t*.15)%1;flo.forEach((m,i)=>m.material.color.setHSL((hue+i*.3)%1,1,.55));D.forEach((d,i)=>d.kg.material.color.setHSL((hue+.25+i*.3)%1,1,.5));
  const red=alarmT>0||(wanted&&Math.sin(t*5)>0);
  if(alarmT>0)alarmT-=dt;
